@@ -26,16 +26,16 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
                 "Id", "Nome", "Telefone", "CNPJ"
             );
 
-            EntidadeBase[] fornecedorescadastrados = repositorio.SelecionarTodos();
-
-            foreach (Fornecedores fornecedor in fornecedorescadastrados)
+            List <EntidadeBase> fornecedorescadastrados = repositorio.SelecionarTodos();
+           
+            foreach (var fornecedor in fornecedorescadastrados)
             {
                 if (fornecedor == null)
                     continue;
 
                 Console.WriteLine(
                     "{0, -10} | {1, -15} | {2, -15} | {3, -15}",
-                    fornecedor.Id, fornecedor.Nome, fornecedor.Telefone, fornecedor.CNPJ
+                    fornecedor.Id, fornecedor., fornecedor.Telefone, fornecedor.CNPJ
                 );
             }
 

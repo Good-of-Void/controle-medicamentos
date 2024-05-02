@@ -44,9 +44,9 @@
             return false;
         }
 
-        public EntidadeBase[] SelecionarTodos()
+        public List<EntidadeBase> SelecionarTodos()
         {
-            return registros.ToArray();
+            return registros;
         }
 
         public EntidadeBase SelecionarPorId(int id)
