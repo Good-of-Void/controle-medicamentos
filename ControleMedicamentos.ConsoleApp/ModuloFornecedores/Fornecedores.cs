@@ -23,7 +23,6 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
         public override List<string> Validar()
         {
             List<string> erros = new List<string>();
-            int contadorErros = 0;
 
             if (Nome.Length < 3)
                 erros.Add ("O Nome do Fornecedor precisa conter ao menos 3 caracteres");
