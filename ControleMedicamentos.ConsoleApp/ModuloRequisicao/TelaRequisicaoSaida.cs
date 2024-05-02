@@ -22,11 +22,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 
             RequisicaoSaida entidade = (RequisicaoSaida)ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            List<string> erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
-                ApresentarErros(erros);
+                ApresentarErros(erros.ToArray());
                 return;
             }
 

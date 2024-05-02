@@ -40,11 +40,11 @@
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            List<string> erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
-                ApresentarErros(erros);
+                ApresentarErros(erros.ToArray());
                 return;
             }
 
@@ -76,11 +76,11 @@
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            List<string> erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
-                ApresentarErros(erros);
+                ApresentarErros(erros.ToArray());
                 return;
             }
 

@@ -2,7 +2,7 @@
 {
     internal abstract class RepositorioBase
     {
-        protected EntidadeBase[] registros = new EntidadeBase[100];
+        protected List<EntidadeBase> registros = new List<EntidadeBase>();
 
         protected int contadorId = 1;
 
@@ -17,15 +17,12 @@
         {
             novaEntidade.Id = id;
 
-            for (int i = 0; i < registros.Length; i++)
+            foreach (var registro in registros)
             {
-                if (registros[i] == null)
-                    continue;
-
-                else if (registros[i].Id == id)
+                if (registro.Id == id)
                 {
-                    registros[i] = novaEntidade;
-
+                    registros.Add(novaEntidade);
+                    registros.Remove(registro);
                     return true;
                 }
             }
@@ -35,14 +32,11 @@
 
         public bool Excluir(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach (var registro in registros)
             {
-                if (registros[i] == null)
-                    continue;
-
-                else if (registros[i].Id == id)
+                if (registro.Id == id)
                 {
-                    registros[i] = null;
+                    registros.Remove(registro);
                     return true;
                 }
             }
@@ -52,14 +46,14 @@
 
         public EntidadeBase[] SelecionarTodos()
         {
-            return registros;
+            return registros.ToArray();
         }
 
         public EntidadeBase SelecionarPorId(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach(var registro in registros)
             {
-                EntidadeBase e = registros[i];
+                EntidadeBase e = registro;
 
                 if (e == null)
                     continue;
@@ -73,9 +67,9 @@
 
         public bool Existe(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach (var registro in registros)
             {
-                EntidadeBase e = registros[i];
+                EntidadeBase e = registro;
 
                 if (e == null)
                     continue;
@@ -89,17 +83,7 @@
 
         protected void RegistrarItem(EntidadeBase novoRegistro)
         {
-            for (int i = 0; i < registros.Length; i++)
-            {
-                if (registros[i] != null)
-                    continue;
-
-                else
-                {
-                    registros[i] = novoRegistro;
-                    break;
-                }
-            }
+            registros.Add(novoRegistro);
         }
     }
 

@@ -21,25 +21,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             QuantidadeRetirada = quantidade;
         }
 
-        public override string[] Validar()
+        public override List<string> Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            List<string> erros = new List<string>();
 
             if (Medicamento == null)
-                erros[contadorErros++] = "O medicamento precisa ser preenchido";
+                erros.Add("O medicamento precisa ser preenchido");
 
             if (Paciente == null)
-                erros[contadorErros++] = "O paciente precisa ser informado";
+                erros.Add("O paciente precisa ser informado");
 
             if (QuantidadeRetirada < 1)
-                erros[contadorErros++] = "Por favor informe uma quantidade válida";
+                erros.Add("Por favor informe uma quantidade válida");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
 
         public bool RetirarMedicamento()

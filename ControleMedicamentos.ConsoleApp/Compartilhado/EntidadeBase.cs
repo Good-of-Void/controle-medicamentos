@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
 
-        public abstract string[] Validar();
+        public abstract List<string> Validar();
     }
 }
