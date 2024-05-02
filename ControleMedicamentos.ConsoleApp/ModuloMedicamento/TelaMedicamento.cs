@@ -20,7 +20,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
                 "Id", "Nome", "Quantidade"
             );
 
-            EntidadeBase[] medicamentosCadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> medicamentosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Medicamento medicamento in medicamentosCadastrados)
             {

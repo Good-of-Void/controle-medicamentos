@@ -26,7 +26,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
                 "Id", "Nome", "Telefone", "CPF"
             );
 
-            EntidadeBase[] funcionarioscadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> funcionarioscadastrados = repositorio.SelecionarTodos();
 
             foreach (Funcionarios funcionario in funcionarioscadastrados)
             {
@@ -35,7 +35,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
 
                 Console.WriteLine(
                     "{0, -10} | {1, -15} | {2, -15} | {3, -15}",
-                    funcionario.Id, funcionario.Nome, funcionario.Telefone, funcionario.CartaoSus
+                    funcionario.Id, funcionario.Nome, funcionario.Telefone, funcionario.CPF
                 );
             }
 

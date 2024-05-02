@@ -28,14 +28,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
 
             List <EntidadeBase> fornecedorescadastrados = repositorio.SelecionarTodos();
            
-            foreach (var fornecedor in fornecedorescadastrados)
+            foreach (Fornecedores fornecedor in fornecedorescadastrados)
             {
                 if (fornecedor == null)
                     continue;
 
                 Console.WriteLine(
                     "{0, -10} | {1, -15} | {2, -15} | {3, -15}",
-                    fornecedor.Id, fornecedor., fornecedor.Telefone, fornecedor.CNPJ
+                    fornecedor.Id, fornecedor.Nome, fornecedor.Telefone, fornecedor.CNPJ
                 );
             }
 

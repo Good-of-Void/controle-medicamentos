@@ -1,7 +1,10 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
 namespace ControleMedicamentos.ConsoleApp
 {
@@ -16,6 +19,18 @@ namespace ControleMedicamentos.ConsoleApp
             telaPaciente.repositorio = repositorioPaciente;
 
             telaPaciente.CadastrarEntidadeTeste();
+
+            RepositorioFuncionarios repositorioFuncionarios = new RepositorioFuncionarios();
+
+            TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+            telaFuncionarios.tipoEntidade = "Funcionário";
+            telaFuncionarios.repositorio = repositorioFuncionarios;
+
+            RepositorioFornecedores repositorioFornecedores = new RepositorioFornecedores();
+
+            TelaFornecedores telaFornecedores = new TelaFornecedores();
+            telaFornecedores.tipoEntidade = "Fornecedor";
+            telaFornecedores.repositorio = repositorioFornecedores;
 
             RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
             TelaMedicamento telaMedicamento = new TelaMedicamento();
@@ -34,6 +49,8 @@ namespace ControleMedicamentos.ConsoleApp
             telaRequisicaoSaida.repositorioPaciente = repositorioPaciente;
             telaRequisicaoSaida.repositorioMedicamento = repositorioMedicamento;
 
+            
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -51,6 +68,12 @@ namespace ControleMedicamentos.ConsoleApp
 
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRequisicaoSaida;
+
+                else if (opcaoPrincipalEscolhida == '4')
+                    tela = telaFuncionarios;
+
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaFornecedores;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
