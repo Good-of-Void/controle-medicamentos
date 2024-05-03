@@ -21,7 +21,6 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
         public override List<string> Validar()
         {
             List<string> erros = new List<string>();
-            int contadorErros = 0;
 
             if (string.IsNullOrEmpty(Nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");
