@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
 {
-    internal class TelaFuncionarios : TelaBase
+    internal class TelaFuncionario : TelaBase
     {
         public override void VisualizarRegistros(bool exibirTitulo)
         {
@@ -28,7 +28,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
 
             List<EntidadeBase> funcionarioscadastrados = repositorio.SelecionarTodos();
 
-            foreach (Funcionarios funcionario in funcionarioscadastrados)
+            foreach (Funcionario funcionario in funcionarioscadastrados)
             {
                 if (funcionario == null)
                     continue;
@@ -54,7 +54,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
             Console.Write("Digite o CPF do funcionário: ");
             string CPF = Console.ReadLine();
 
-            Funcionarios novoFuncionario = new Funcionarios(nome, telefone, CPF);
+            Funcionario novoFuncionario = new Funcionario(nome, telefone, CPF);
 
             return novoFuncionario;
         }

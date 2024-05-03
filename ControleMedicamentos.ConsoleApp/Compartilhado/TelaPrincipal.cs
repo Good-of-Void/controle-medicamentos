@@ -15,9 +15,10 @@ namespace ControleMedicamentos.ConsoleApp.Compartilhado
 
             Console.WriteLine("1 - Cadastro de Pacientes");
             Console.WriteLine("2 - Cadastro de Medicamentos");
-            Console.WriteLine("3 - Cadastro de Requisições de Saída");
-            Console.WriteLine("4 - Cadastro de Funcionário");
-            Console.WriteLine("5 - Cadastro de Fornecedores");
+            Console.WriteLine("3 - Cadastro de Funcionário");
+            Console.WriteLine("4 - Cadastro de Fornecedores");
+            Console.WriteLine("5 - Cadastro de Requisições de Saída");
+            Console.WriteLine("6 - Cadastro de Requisições de Entrada");
 
             Console.WriteLine("S - Sair");
 

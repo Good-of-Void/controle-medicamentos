@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
 {
-    internal class TelaFornecedores : TelaBase
+    internal class TelaFornecedor : TelaBase
     {
         public override void VisualizarRegistros(bool exibirTitulo)
         {
@@ -28,7 +28,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
 
             List <EntidadeBase> fornecedorescadastrados = repositorio.SelecionarTodos();
            
-            foreach (Fornecedores fornecedor in fornecedorescadastrados)
+            foreach (Fornecedor fornecedor in fornecedorescadastrados)
             {
                 if (fornecedor == null)
                     continue;
@@ -54,7 +54,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
             Console.Write("Digite o CNPJ do fornecedor: ");
             string CNPJ = Console.ReadLine();
 
-            Fornecedores novoFornecedor = new Fornecedores(nome, telefone, CNPJ);
+            Fornecedor novoFornecedor = new Fornecedor(nome, telefone, CNPJ);
 
             return novoFornecedor;
         }

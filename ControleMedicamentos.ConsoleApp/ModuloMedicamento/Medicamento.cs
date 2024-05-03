@@ -24,7 +24,6 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 
             if (string.IsNullOrEmpty(Nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");
-                erros[contadorErros++] = ("O campo \"nome\" é obrigatório");
 
             if (string.IsNullOrEmpty(Descricao.Trim()))
                 erros.Add("O campo \"descrição\" é obrigatório");
@@ -40,5 +39,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             return erros;
         }
 
+        public bool RetirarMedicamento(int quantidade,Medicamento medicamento)
+        {
+            if(medicamento.Quantidade >= quantidade)
+            {
+                medicamento.Quantidade -= quantidade;
+                return true;
+            }
+            return false;
+        }
     }
 }

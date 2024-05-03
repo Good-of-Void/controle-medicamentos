@@ -5,6 +5,7 @@ using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada;
 
 namespace ControleMedicamentos.ConsoleApp
 {
@@ -12,6 +13,7 @@ namespace ControleMedicamentos.ConsoleApp
     {
         static void Main(string[] args)
         {
+            //paciente
             RepositorioPaciente repositorioPaciente = new RepositorioPaciente();
 
             TelaPaciente telaPaciente = new TelaPaciente();
@@ -20,28 +22,32 @@ namespace ControleMedicamentos.ConsoleApp
 
             telaPaciente.CadastrarEntidadeTeste();
 
-            RepositorioFuncionarios repositorioFuncionarios = new RepositorioFuncionarios();
+            //funcionario
+            RepositorioFuncionario repositorioFuncionarios = new RepositorioFuncionario();
 
-            TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
+            TelaFuncionario telaFuncionarios = new TelaFuncionario();
             telaFuncionarios.tipoEntidade = "Funcionário";
             telaFuncionarios.repositorio = repositorioFuncionarios;
 
-            RepositorioFornecedores repositorioFornecedores = new RepositorioFornecedores();
+            //fornecedor
+            RepositorioFornecedor repositorioFornecedores = new RepositorioFornecedor();
 
-            TelaFornecedores telaFornecedores = new TelaFornecedores();
+            TelaFornecedor telaFornecedores = new TelaFornecedor();
             telaFornecedores.tipoEntidade = "Fornecedor";
             telaFornecedores.repositorio = repositorioFornecedores;
 
+            //medicamento
             RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
             TelaMedicamento telaMedicamento = new TelaMedicamento();
             telaMedicamento.repositorio = repositorioMedicamento;
             telaMedicamento.tipoEntidade = "Medicamento";
 
+            //requisicao Saida
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
 
             TelaRequisicaoSaida telaRequisicaoSaida = new TelaRequisicaoSaida();
             telaRequisicaoSaida.repositorio = repositorioRequisicaoSaida;
-            telaRequisicaoSaida.tipoEntidade = "Requisição";
+            telaRequisicaoSaida.tipoEntidade = "Requisição de saida";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
@@ -49,6 +55,18 @@ namespace ControleMedicamentos.ConsoleApp
             telaRequisicaoSaida.repositorioPaciente = repositorioPaciente;
             telaRequisicaoSaida.repositorioMedicamento = repositorioMedicamento;
 
+            //requisicao Entrada
+            RepositorioRequisiçaoEntrada repositorioRequisiçaoEntrada = new RepositorioRequisiçaoEntrada();
+
+            TelaRequisiçaoEntrada telaRequisiçaoEntrada = new TelaRequisiçaoEntrada();
+            telaRequisiçaoEntrada.repositorio = repositorioRequisiçaoEntrada;
+            telaRequisiçaoEntrada.tipoEntidade = "Requisição de entrada";
+
+            telaRequisiçaoEntrada.telaPaciente = telaPaciente;
+            telaRequisiçaoEntrada.telaFornecedor = telaFornecedores;
+            telaRequisiçaoEntrada.telaFuncionario = telaFuncionarios;
+            telaRequisiçaoEntrada.telaMedicamento = telaMedicamento;
+            
             
 
             while (true)
@@ -67,13 +85,16 @@ namespace ControleMedicamentos.ConsoleApp
                     tela = telaMedicamento;
 
                 else if (opcaoPrincipalEscolhida == '3')
-                    tela = telaRequisicaoSaida;
-
-                else if (opcaoPrincipalEscolhida == '4')
                     tela = telaFuncionarios;
 
-                else if (opcaoPrincipalEscolhida == '5')
+                else if (opcaoPrincipalEscolhida == '4')
                     tela = telaFornecedores;
+
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaRequisicaoSaida;
+
+                else if (opcaoPrincipalEscolhida == '6')
+                    tela = telaRequisiçaoEntrada;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 

@@ -5,35 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
+namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
 {
-    internal class Funcionarios : EntidadeBase
+    internal class Fornecedor : EntidadeBase
     {
         public string Nome { get; set; }
         public string Telefone { get; set; }
-        public string CPF { get; set; }
+        public string CNPJ { get; set; }
 
-        public Funcionarios(string nome, string telefone, string cPF)
+        public Fornecedor(string nome, string telefone, string cNPJ)
         {
             Nome = nome;
             Telefone = telefone;
-            CPF = cPF;
+            CNPJ = cNPJ;
         }
 
         public override List<string> Validar()
         {
             List<string> erros = new List<string>();
-            int contadorErros = 0;
 
             if (Nome.Length < 3)
-                erros.Add ("O Nome do Funcionário precisa conter ao menos 3 caracteres");
+                erros.Add ("O Nome do Fornecedor precisa conter ao menos 3 caracteres");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros.Add("O Telefone precisa ser preenchido");
+                erros.Add ("O Telefone precisa ser preenchido");
 
-            if (string.IsNullOrEmpty(CPF))
-                erros.Add("O CPF precisa ser preenchido");          
-
+            if (string.IsNullOrEmpty(CNPJ))
+                erros.Add("O CNPJ precisa ser preenchido");
+            
             return erros;
         }
     }
