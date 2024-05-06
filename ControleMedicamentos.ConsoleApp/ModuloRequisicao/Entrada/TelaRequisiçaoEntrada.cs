@@ -3,14 +3,14 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
-using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
     internal class TelaRequisiçaoEntrada : TelaBase
     {
@@ -69,7 +69,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
 
             Console.WriteLine(
                 "{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -20}",
-                "Id", "Data da requisição ", "Medicamento" , "Quantidade Retirada" , "Funcionario"
+                "Id", "Data da requisição ", "Medicamento", "Quantidade Retirada", "Funcionario"
             );
 
             List<EntidadeBase> RequisicoesEntrada = repositorio.SelecionarTodos();
@@ -88,7 +88,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
             Console.ReadLine();
             Console.WriteLine();
         }
-        
+
         protected override EntidadeBase ObterRegistro()
         {
 
@@ -119,7 +119,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
             Console.Write("Digite a data da requisição: ");
             DateTime dataRequisicao = Convert.ToDateTime(Console.ReadLine());
 
-            
+
             RequisiçaoEntrada requisiçaoEntrada = new RequisiçaoEntrada(
                 quantidade, dataRequisicao,
                 medicamentoSelecionado, fornecedorSelecionado,

@@ -2,10 +2,10 @@
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
-using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
-using ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
 
 namespace ControleMedicamentos.ConsoleApp
 {
@@ -42,6 +42,9 @@ namespace ControleMedicamentos.ConsoleApp
             telaMedicamento.repositorio = repositorioMedicamento;
             telaMedicamento.tipoEntidade = "Medicamento";
 
+            telaMedicamento.telaFornecedor = telaFornecedores;
+            telaMedicamento.repositorioFornecedor = repositorioFornecedores;
+
             //requisicao Saida
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
 
@@ -66,6 +69,12 @@ namespace ControleMedicamentos.ConsoleApp
             telaRequisiçaoEntrada.telaFornecedor = telaFornecedores;
             telaRequisiçaoEntrada.telaFuncionario = telaFuncionarios;
             telaRequisiçaoEntrada.telaMedicamento = telaMedicamento;
+
+            telaRequisiçaoEntrada.repositorioPaciente = repositorioPaciente;
+            telaRequisiçaoEntrada.repositorioFornecedor = repositorioFornecedores;
+            telaRequisiçaoEntrada.repositorioFuncionario = repositorioFuncionarios;
+            telaRequisiçaoEntrada.repositorioMedicamento = repositorioMedicamento;
+
             
             
 

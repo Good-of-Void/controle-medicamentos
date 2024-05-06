@@ -17,12 +17,15 @@
         {
             novaEntidade.Id = id;
 
-            foreach (var registro in registros)
+            foreach (EntidadeBase entidade in registros)
             {
-                if (registro.Id == id)
+                if (entidade == null)
+                    continue;
+
+                else if (entidade.Id == id)
                 {
-                    registros.Add(novaEntidade);
-                    registros.Remove(registro);
+                    entidade.AtualizarRegistro(novaEntidade);
+
                     return true;
                 }
             }

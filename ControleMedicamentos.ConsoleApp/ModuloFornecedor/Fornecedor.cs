@@ -35,5 +35,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores
             
             return erros;
         }
+
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        {
+            Fornecedor novo = (Fornecedor) novoegistro;
+
+            this.Nome = novo.Nome;
+            this.Telefone = novo.Telefone;
+            this.CNPJ = novo.CNPJ;
+        }
     }
 }

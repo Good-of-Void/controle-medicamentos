@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
     internal class RequisiçaoEntrada : EntidadeBase
     {
@@ -40,7 +40,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
 
             if (string.IsNullOrEmpty(Convert.ToString(Fornecedor).Trim()))
                 erros.Add("O campo \"Fornecedor\" é obrigatório");
-            
+
             if (string.IsNullOrEmpty(Convert.ToString(Funcionario).Trim()))
                 erros.Add("O campo \"Funcionario\" é obrigatório");
 
@@ -54,6 +54,17 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisiçaoEntrada
 
             Medicamento.Quantidade -= Quantidade;
             return true;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        {
+            RequisiçaoEntrada novo = (RequisiçaoEntrada)novoegistro;
+
+            this.Data = novo.Data; 
+            this.Quantidade = novo.Quantidade; 
+            this.Medicamento = novo.Medicamento; 
+            this.Fornecedor = novo.Fornecedor; 
+            this.Funcionario = novo.Funcionario; 
         }
     }
 }
