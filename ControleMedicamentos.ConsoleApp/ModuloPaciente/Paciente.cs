@@ -33,5 +33,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 
             return erros;
         }
+
+        public override void AtualizarRegistro(EntidadeBase novoregistro)
+        {
+            Paciente novo = (Paciente)novoregistro;
+
+            this.Nome = novo.Nome;
+            this.Telefone = novo.Telefone;
+            this.CartaoSus = novo.CartaoSus;
+        }
     }
 }

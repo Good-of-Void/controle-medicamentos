@@ -36,5 +36,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionarios
 
             return erros;
         }
+
+        public override void AtualizarRegistro(EntidadeBase novoregistro)
+        {
+            Funcionario novo = (Funcionario)novoregistro;
+
+            this.Nome = novo.Nome;
+            this.Telefone = novo.Telefone;
+            this.CPF = novo.CPF;
+        }
     }
 }
